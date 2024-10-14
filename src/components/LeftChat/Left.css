@@ -1,0 +1,155 @@
+.left{
+    background: #001030;
+    color:white;
+    height:75vh
+}
+
+.top{
+    padding : 10px
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width:80px
+}
+
+.menu img{
+    max-height: 20px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    /* justify-content: space-around; */
+   padding: 10px 10px;
+   margin-bottom: 10px;
+    background-color: #002670;
+}
+
+.search img{
+    width: 15px;
+}
+
+.search input{
+    background: transparent;
+    border:none;
+    outline:none;
+    border-radius: 10px;
+    color:white;
+    font-size: 12px;
+}
+.search input::placeholder{
+    color:white
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    height:68%;
+    overflow-y: scroll;
+}
+
+.friends{
+    display: flex;
+    align-items: center;
+
+    gap:10px;
+    padding : 10px 20px;
+    cursor: pointer;
+    font-size: 12px;
+    /* justify-content: space-around; */
+}
+
+.friends img{
+    width:35px;
+    aspect-ratio:1/1;
+    border-radius: 50%;
+}
+
+.friends div{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.friends span{
+    color:#9f9f9f;
+    font-size: 10px;
+}
+
+.friends:hover{
+    background-color: #077EFF;
+
+}
+
+.friends:hover span{
+    color:white
+}
+.menu{
+    padding: 10px 0px;
+    position: relative;
+
+}
+
+
+.sub-menu{
+    /* display: none; */
+    position: absolute;
+    top:100%;
+    right:0;
+    width:120px;
+    padding: 20px;
+    border-radius: 5px;
+    background: white;
+    color: black;
+    /* font-size: 12px; */
+}
+
+.menu .sub-menu{
+    display: none;
+}
+
+.sub-menu hr{
+    border : none;
+    height: 1px;
+    background: #a4a4a4;
+    margin: 8px 0px;
+}
+
+.sub-menu p{
+    cursor: pointer
+    ;
+    font-size: 13px;
+
+}
+
+.menu:hover .sub-menu{ 
+    display: block;
+}
+
+.border img{
+    border:3px solid #07fff3;
+
+}
+
+.border div span{
+    color:#07fff3
+}
+
+
+@media (max-width:900px) {
+
+    .left {
+        width: 100%;
+    }
+
+    
+    
+}
