@@ -161,7 +161,7 @@ const Left = () => {
                 const userData = userSnap.data()
                 setChatUser(prev=>({...prev , userData:userData}))
             }
-            
+
           }
 
           updateChatUser()
