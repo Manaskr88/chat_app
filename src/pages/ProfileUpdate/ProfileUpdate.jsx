@@ -7,8 +7,9 @@ import { doc, getDoc, updateDoc } from 'firebase/firestore';
 // import { getDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import upload from '../../lib/Upload';
+// import upload from '../../lib/upload.js';
 import { Appcontext } from '../../context/Appcontext';
+import upload from '../../lib/Upload';
 
 const ProfileUpdate = () => {
 
@@ -23,7 +24,7 @@ const ProfileUpdate = () => {
 
   const navigate = useNavigate('')
 
-
+   
   const ProfileUpdatee = async (e) => {
     e.preventDefault()
 
