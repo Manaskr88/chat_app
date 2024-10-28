@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
-import './ProfileUpdate.css'
-import assets from '../../assets/assets'
+import React, { useContext, useEffect, useState } from 'react';
+import './ProfileUpdate.css';
+import assets from '../../assets/assets';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth, db } from '../../config/Firebase.js'
+import { auth, db } from '../../config/firebase.js';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 // import { getDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
@@ -32,6 +32,12 @@ const ProfileUpdate = () => {
       if (!prevImage && !image) {
 
         toast.error("Upload a picture")
+      }
+      else {
+        // Upload the new image to Firebase
+        // ...
+        // After the upload is successful, clear prevImage
+        setPrevImage('');
       }
 
       // this will update name , bio , image in firebase 

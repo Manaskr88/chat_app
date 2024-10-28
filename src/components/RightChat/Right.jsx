@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './Right.css'
 import assets from '../../assets/assets'
-import { logout } from '../../config/Firebase.js'
+import { logout } from '../../config/firebase.js'
 import { Appcontext } from '../../context/Appcontext'
 const Right = () => {
 
