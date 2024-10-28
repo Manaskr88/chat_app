@@ -10,7 +10,8 @@ import { toast } from 'react-toastify';
 import { Appcontext } from '../../context/Appcontext';
 // import upload from '../../lib/Upload.js';
 
-import upload from '../../lib/Upload.js'
+import upload from '../../lib/Upload'
+
 const ProfileUpdate = () => {
 
   const { setUserData } = useContext(Appcontext)
