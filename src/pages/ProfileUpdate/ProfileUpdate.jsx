@@ -2,14 +2,13 @@ import React, { useContext, useEffect, useState } from 'react'
 import './ProfileUpdate.css'
 import assets from '../../assets/assets'
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth, db } from '../../config/firebase'
+import { auth, db } from '../../config/Firebase.js'
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 // import { getDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-// import upload from '../../lib/upload.js';
 import { Appcontext } from '../../context/Appcontext';
-import upload from '../../lib/Upload';
+import upload from '../../lib/Upload.js';
 
 const ProfileUpdate = () => {
 

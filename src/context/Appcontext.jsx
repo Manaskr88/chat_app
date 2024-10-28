@@ -1,6 +1,6 @@
 import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
 import { createContext, useEffect, useState } from "react";
-import { auth, db } from "../config/firebase";
+import { auth, db } from "../config/Firebase.js";
 import { useNavigate } from "react-router-dom";
 
 export const Appcontext = createContext();

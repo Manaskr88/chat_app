@@ -4,8 +4,8 @@ import assets from '../../assets/assets'
 import { Appcontext } from '../../context/Appcontext'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { arrayUnion, doc, getDoc, onSnapshot, updateDoc } from 'firebase/firestore'
-import { db } from '../../config/firebase'
-import upload from '../../lib/Upload';
+import { db } from '../../config/Firebase.js'
+import upload from '../../lib/Upload.js';
 import { toast } from 'react-toastify'
 
 const ChatBox = () => {

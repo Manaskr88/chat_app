@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Login.css'
 import assets from '../../assets/assets'
 
-import { signUp, login , resetPassword } from '../../config/firebase.js'
+import { signUp, login , resetPassword } from '../../config/Firebase.js'
 
 const Login = () => {
 
