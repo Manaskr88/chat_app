@@ -3,8 +3,8 @@ import './Left.css'
 import assets from '../../assets/assets'
 import { useNavigate } from 'react-router-dom'
 import { db, logout } from '../../config/firebase'
-import {  toast } from 'react-toastify'
-import { arrayUnion, collection, getDoc , doc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore'
+import { toast } from 'react-toastify'
+import { arrayUnion, collection, getDoc, doc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore'
 import { Appcontext } from '../../context/Appcontext'
 // import { getDoc } from 'firebase/firestore'
 // import { doc } from 'firebase/firestore'
@@ -13,7 +13,7 @@ const Left = () => {
 
     const navigate = useNavigate()
 
-    const { userData, visible , setVisible , chatData , chatUser , setChatUser , setMessageId , messageId} = useContext(Appcontext);
+    const { userData, visible, setVisible, chatData, chatUser, setChatUser, setMessageId, messageId } = useContext(Appcontext);
 
     const [user, setUser] = useState(null)
     const [showSearch, setShowSearch] = useState(false)
@@ -35,15 +35,15 @@ const Left = () => {
                         if (user.rId === querySnap.docs[0].data().id) {
                             userExist = true;
                         }
-                        
+
                     })
                     // console.log(chatData);
-                    
-                    if(!userExist){
+
+                    if (!userExist) {
 
                         setUser(querySnap.docs[0].data());
                     }
-                    
+
 
                 }
                 else {
@@ -95,15 +95,15 @@ const Left = () => {
                     messageSeen: true
                 })
             })
-        
-            const uSnap = await getDoc(doc (db , 'users', user.id))
+
+            const uSnap = await getDoc(doc(db, 'users', user.id))
 
             const uData = uSnap.data();
             setChat({
-                messageId : newMessageRef.id,
+                messageId: newMessageRef.id,
                 lastMessage: "",
-                rId : user.id,
-                updatedAt:Date.now(),
+                rId: user.id,
+                updatedAt: Date.now(),
                 messageSeen: true,
                 userData: uData
             })
@@ -119,58 +119,58 @@ const Left = () => {
 
     }
 
-    const setChat = async(item)=>{
-    //    console.log(item);
+    const setChat = async (item) => {
+        //    console.log(item);
 
-    try {
-        
-      setMessageId(item.messageId)
-      setChatUser(item)
+        try {
 
-      const userChatsRef  = doc(db, 'chats' , userData.id);
+            setMessageId(item.messageId)
+            setChatUser(item)
 
-      const userChatsSnapshot = await getDoc(userChatsRef);
+            const userChatsRef = doc(db, 'chats', userData.id);
 
-      const userChatsData = userChatsSnapshot.data();
-      const chatIndex = userChatsData.chatsData.findIndex((c)=>c.messageId === item.messageId);
+            const userChatsSnapshot = await getDoc(userChatsRef);
 
-      userChatsData.chatsData[chatIndex].messageSeen = true;
+            const userChatsData = userChatsSnapshot.data();
+            const chatIndex = userChatsData.chatsData.findIndex((c) => c.messageId === item.messageId);
 
-      await updateDoc(userChatsRef , {
-        chatsData: userChatsData.chatsData
-      })
+            userChatsData.chatsData[chatIndex].messageSeen = true;
 
-      setVisible(true);   // for side bar
+            await updateDoc(userChatsRef, {
+                chatsData: userChatsData.chatsData
+            })
 
-    } 
-    catch (error) {
-          toast.error(error.message)
+            setVisible(true);   // for side bar
+
+        }
+        catch (error) {
+            toast.error(error.message)
+        }
+
+
+
+
     }
-      
-    
 
-    useEffect(()=>{
-          const updateChatUser = async()=>{
-              
-            if(chatUser){
+    useEffect(() => {
+        const updateChatUser = async () => {
 
-                const userRef = doc(db , "users" , chatUser.userData.id)
+            if (chatUser) {
+
+                const userRef = doc(db, "users", chatUser.userData.id)
 
                 const userSnap = await getDoc(userRef)
 
                 const userData = userSnap.data()
-                setChatUser(prev=>({...prev , userData:userData}))
+                setChatUser(prev => ({ ...prev, userData: userData }))
             }
 
-          }
+        }
 
-          updateChatUser()
-    },[chatData])
-       
-
-    }
+        updateChatUser()
+    }, [chatData])
     return (
-        <div className={`left ${visible? "hidden" : "" }`}>
+        <div className={`left ${visible ? "hidden" : ""}`}>
 
             <div className="top">
 
@@ -207,9 +207,9 @@ const Left = () => {
                         <p>{user.name}</p>
                     </div>
                     :
-                     chatData && chatData.map((item, index) => (
-                        
-                        <div onClick={()=>{setChat(item)}} key={index} className={`friends ${item.messageSeen || item.messageId === messageId? "" : "border" }`}>
+                    chatData && chatData.map((item, index) => (
+
+                        <div onClick={() => { setChat(item) }} key={index} className={`friends ${item.messageSeen || item.messageId === messageId ? "" : "border"}`}>
                             <img src={item.userData.avatar} />
 
                             <div className="">
@@ -218,11 +218,11 @@ const Left = () => {
                             </div>
 
                         </div>
-                        
+
                     ))
-                    
+
                 }
-                
+
 
 
 
